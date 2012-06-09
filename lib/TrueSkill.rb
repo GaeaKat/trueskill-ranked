@@ -37,7 +37,16 @@ class TrueSkill
       if group.is_a? Rating
         group=[group,]
       end
+      if group.length==0
+        raise "each group must contain multiple ratings"
+      end
     end
+    if rating_groups.length<2
+      raise "need multiple rating groups"
+    end
+  end
+  def build_factor_graph(rating_groups,ranks)
+    
   end
 end
 
