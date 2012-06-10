@@ -1,6 +1,6 @@
 module TrueSkill
-include 'general.rb'
-class TrueSkill
+require 'general'
+class TrueSkillObject
 
   attr_accessor :mu,:sigma,:beta,:tau,:draw_probability
 
@@ -29,10 +29,10 @@ class TrueSkill
     return Rating.new mu,sigma
   end
   
-  def make_as_global
+  def self.make_as_global
     return setup(nil,nil,nil,nil,nil,self)
   end
-  def validate_rating_groups(rating_groups)
+  def self.validate_rating_groups(rating_groups)
     rating_groups.each do |group|
       if group.is_a? Rating
         group=[group,]
@@ -45,8 +45,34 @@ class TrueSkill
       raise "need multiple rating groups"
     end
   end
-  def build_factor_graph(rating_groups,ranks)
+  def self.build_factor_graph(rating_groups,ranks)
+    ratings=rating_groups.flatten
+    size=ratings.length
+    group_size=rating_groups.length
+    rating_vars=[]
+    size.times { rating_vars << Variable.new}
     
+    perf_vars=[]
+    size.times { perf_vars << Variable.new}
+    
+    teamperf_vars=[]
+    group_size.times { teamperf_vars << Variable.new}
+    
+    teamdiff_vars=[]
+    (group_size-1).times { teamdiff_vars << Variable.new}
+    
+    team_sizes=_team_sizes(rating_groups)
+    get_perf_vars_by_team=lambda do |team|
+      if team > 0
+        start=team_sizes[team-1]
+      else
+        start=0
+      end
+      endv=team_sizes[team]
+      return perf_vars[start,endv]
+    end
+    
+    pp get_perf_vars_by_team.call(0)
   end
 end
 

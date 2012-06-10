@@ -1,7 +1,8 @@
 module TrueSkill
-  include 'Mathematics/general.rb'
-  include 'Mathematics/guassian.rb'
-
+  require 'Mathematics/general.rb'
+  require 'Mathematics/guassian.rb'
+  require 'TrueSkill'
+  require 'FactorGraph/Variable'
   MU=25.0
   SIGMA=MU/3
   BETA=SIGMA/2
@@ -49,7 +50,7 @@ module TrueSkill
   def _team_sizes(rating_groups)
     team_sizes=[0]
     rating_groups.each do |group|
-      team_sizes << group.length+team_sizes.self
+      team_sizes << group.length+team_sizes.last
     end
     team_sizes.delete_at(0)
     return team_sizes
@@ -64,7 +65,11 @@ $global=[]
   end
   def setup(mu=MU, sigma=SIGMA, beta=BETA, tau=TAU,draw_probability=DRAW_PROBABILITY, env=nil)
     $global.pop
-    $global <<  (not env.nil?)?env:TrueSkill.new(mu, sigma, beta, tau, draw_probability)
+    if env.nil?
+      $global << TrueSkillObject.new(mu, sigma, beta, tau, draw_probability)
+    else
+      $global << env
+    end
     return g()
   end
 

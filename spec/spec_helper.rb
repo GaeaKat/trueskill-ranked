@@ -1,3 +1,5 @@
 require_relative '../lib/Mathematics/general'
 require_relative '../lib/Mathematics/guassian'
+require_relative '../lib/Rating'
+require_relative '../lib/TrueSkill'
 require 'yaml'

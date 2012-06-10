@@ -1,10 +1,11 @@
 module TrueSkill
-  include 'Mathematics/general.rb'
-  include 'Mathematics/guassian.rb'
+  require 'Mathematics/general.rb'
+  require 'Mathematics/guassian.rb'
+  require 'general'
   class Rating < Gaussian
   attr_accessor :exposure
     def initialize(mu=nil,sigma=nil)
-      if mu.is_a? list or mu.is_a? tuple
+      if mu.kind_of?(Array)
         mu,sigma=mu
       end
       if mu.nil?
