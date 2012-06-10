@@ -21,10 +21,28 @@ class Variable < Gaussian
     if  message.nil?
       message=Guassian.new(nil,nil,pi,tau)
     end
-    @old_message=self[factor]
+    old_message=self[factor]
     self[factor]=message
     return set(self/old_message*message)
   end
+  
+  def update_value(factor,pi=0,tau=0,value=nil)
+    if  value.nil?
+      value=Guassian.new(nil,nil,pi,tau)
+    end
+    old_message=self[factor]
+    self[factor]=value*old_message/self
+    return set(value)
+  end
+  
+  def [](y)
+    @messages[y]
+  end
+  
+  def []=(y,value)
+    @messages[y]=value
+  end
+  
 end
 
 end

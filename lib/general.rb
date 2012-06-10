@@ -54,17 +54,17 @@ module TrueSkill
     team_sizes.delete_at(0)
     return team_sizes
   end
-_global=[]
+$global=[]
 
   def g()
-    if _global.length==0
+    if $global.length==0
       setup()
     end
-    return _global[0]
+    return $global[0]
   end
   def setup(mu=MU, sigma=SIGMA, beta=BETA, tau=TAU,draw_probability=DRAW_PROBABILITY, env=nil)
-    _global.pop
-    _global <<  (not env.nil?)?env:TrueSkill.new(mu, sigma, beta, tau, draw_probability)
+    $global.pop
+    $global <<  (not env.nil?)?env:TrueSkill.new(mu, sigma, beta, tau, draw_probability)
     return g()
   end
 
