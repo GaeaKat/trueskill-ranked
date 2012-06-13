@@ -14,18 +14,18 @@ class TruncateFactor < Factor
   
   
   def up()
-    val=@var
-    msg=@var[self]
+    val=var
+    msg=var[self]
     div=val/msg
     sqrt_pi=Math.sqrt(div.pi)
     
-    v=v_func(div.tau/sqrt_pi,@draw_margin*sqrt_pi)
-    w=w_func(div.tau/sqrt_pi,@draw_margin*sqrt_pi)
+    v=@v_func.call(div.tau/sqrt_pi,@draw_margin*sqrt_pi)
+    w=@w_func.call(div.tau/sqrt_pi,@draw_margin*sqrt_pi)
     
     denom=(1.0-w)
     pi=div.pi/denom
     tau=(div.tau+sqrt_pi*v)/denom
-    return @var.update_value(self,pi,tau)
+    return var.update_value(self,pi,tau)
   end  
 end
 

@@ -1,5 +1,5 @@
 module TrueSkill
-
+require_relative 'Factor'
 class LikelihoodFactor < Factor
   @mean=nil
   @value=nil
@@ -16,14 +16,14 @@ class LikelihoodFactor < Factor
     msg=val/@mean[self]
     pi=1.0/@variance
     a=pi/(pi+val.pi)
-    return value.update_message(self,a*msg.pi,a*msg.tau)
+    return @value.update_message(self,a*msg.pi,a*msg.tau)
   end 
   
   def up
     val=@value
     msg=val/@value[self]
     a=1.0/(1.0+@variance*msg.pi)
-    return mean.update_message(self,a*msg.pi,a*msg.tau)
+    return @mean.update_message(self,a*msg.pi,a*msg.tau)
   end
 end
 

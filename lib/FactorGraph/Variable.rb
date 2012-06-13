@@ -2,10 +2,11 @@ module TrueSkill
 
 class Variable < Gaussian
 
-  @messages={}
+  
   @delta=nil
   def initialize()
     super()
+    @messages={}
   end
   
   def set(val)
@@ -19,7 +20,7 @@ class Variable < Gaussian
   
   def update_message(factor,pi=0,tau=0,message=nil)
     if  message.nil?
-      message=Guassian.new(nil,nil,pi,tau)
+      message=Gaussian.new(nil,nil,pi,tau)
     end
     old_message=self[factor]
     self[factor]=message
@@ -28,7 +29,7 @@ class Variable < Gaussian
   
   def update_value(factor,pi=0,tau=0,value=nil)
     if  value.nil?
-      value=Guassian.new(nil,nil,pi,tau)
+      value=Gaussian.new(nil,nil,pi,tau)
     end
     old_message=self[factor]
     self[factor]=value*old_message/self

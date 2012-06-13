@@ -1,5 +1,5 @@
 module TrueSkill
-
+require_relative 'Factor'
 class PriorFactor < Factor
   @val=nil
   @dynamic=0

@@ -1,5 +1,6 @@
 module TrueSkill
 require 'general'
+require 'core_ext'
 class TrueSkillObject
 
   attr_accessor :mu,:sigma,:beta,:tau,:draw_probability
@@ -29,10 +30,10 @@ class TrueSkillObject
     return Rating.new mu,sigma
   end
   
-  def self.make_as_global
+  def make_as_global
     return setup(nil,nil,nil,nil,nil,self)
   end
-  def self.validate_rating_groups(rating_groups)
+  def validate_rating_groups(rating_groups)
     rating_groups.each do |group|
       if group.is_a? Rating
         group=[group,]
@@ -44,8 +45,9 @@ class TrueSkillObject
     if rating_groups.length<2
       raise "need multiple rating groups"
     end
+    return rating_groups
   end
-  def self.build_factor_graph(rating_groups,ranks)
+  def build_factor_graph(rating_groups,ranks)
     ratings=rating_groups.flatten
     size=ratings.length
     group_size=rating_groups.length
@@ -72,7 +74,133 @@ class TrueSkillObject
       return perf_vars[start,endv]
     end
     
-    pp get_perf_vars_by_team.call(0)
+    build_rating_layer=lambda do
+      Enumerator.new do |yielder|
+      
+        rating_vars.zip(ratings).each do |rating_var,rating|
+          yielder.yield(PriorFactor.new(rating_var,rating,@tau))
+        end
+      end
+    end
+    build_perf_layer=lambda do
+      Enumerator.new do |yielder|
+      
+        rating_vars.zip(perf_vars).each do |rating_var,perf_var|
+          yielder.yield(LikelihoodFactor.new(rating_var,perf_var,@beta**2))
+        end
+      end
+    end
+    build_teamperf_layer=lambda do
+     Enumerator.new do |yielder|
+       teamperf_vars.each_with_index do |teamperf_var,team|
+          child_perf_vars = get_perf_vars_by_team.call(team)
+          yielder.yield(SumFactor.new(teamperf_var,child_perf_vars,[1]*child_perf_vars.length))
+       end
+     end
+   end
+   build_teamdiff_layer=lambda do
+    Enumerator.new do |yielder|
+      teamdiff_vars.each_with_index do |teamdiff_var,team|
+        yielder.yield(SumFactor.new(teamdiff_var,teamperf_vars[team,team=2],[+1,-1]))
+      end
+    end
+   end
+   build_trunc_layer=lambda do
+    Enumerator.new do |yielder|
+      teamdiff_vars.each_with_index do |teamdiff_var,x|
+        size=0
+        rating_groups[x,x+2].each do |group|
+          size+=group.length
+        end
+        draw_margin=calc_draw_margin(@draw_probability,@beta,size)
+        
+        if ranks[x]==ranks[x+1]
+          v_func,w_func=$v_drawFunc,$w_drawFunc
+        else
+          v_func,w_func=$vFunc,$wFunc
+        end
+        yielder.yield(TruncateFactor.new(teamdiff_var,v_func,w_func,draw_margin))
+      end
+    end
+   end
+   
+   return Array(build_rating_layer.call),Array(build_perf_layer.call),Array(build_teamperf_layer.call),Array(build_teamdiff_layer.call),Array(build_trunc_layer.call)
+  end
+  
+  def run_schedule(rating_layer, perf_layer, teamperf_layer,teamdiff_layer, trunc_layer, min_delta=DELTA)
+    [rating_layer,perf_layer,teamperf_layer].flatten.each do |f|
+      f.down
+    end
+    teamdiff_len=teamdiff_layer.length
+    (10).times do |x|
+      if teamdiff_len==1
+        teamdiff_layer[0].down
+        delta=trunc_layer[0].up
+      else
+        delta=0
+        (teamdiff_len-1).times do |x2|
+          teamdiff_layer[x2].down
+          delta=[delta,trunc_layer[x].up].max
+          teamdiff_layer[x].up(1)
+        end
+        (teamdiff_len-1).step(0,-1) do |x2|
+          teamdiff_layer[x2].down
+          delta=[delta,trunc_layer[x].up].max
+          teamdiff_layer[x].up(0)
+        end
+      end
+      if delta<=min_delta
+        break
+      end
+    end
+    teamdiff_layer.first.up(0)
+    teamdiff_layer.last.up(1)
+    teamperf_layer.each do |f|
+      (f.vars.length-1).times do |x|
+        f.up(x)
+      end
+    end
+    perf_layer.each do |f|
+      f.up
+    end
+  end
+  def transform_ratings(rating_groups, ranks=nil, min_delta=DELTA)
+    rating_groups=validate_rating_groups(rating_groups)
+    group_size=rating_groups.length
+    if ranks.nil?
+      ranks=Array(0..group_size-1)
+    end
+    sorting=ranks.zip(rating_groups).each_with_index.to_a.map {|x| x.reverse}.sort { |x,y| x[1][0] <=> y[1][0]}
+    sorted_groups=[]
+    sorting.each do |x,g|
+      sorted_groups << g[1]
+    end
+    sorted_ranks=ranks.sort()
+    unsorting_hint=[]
+    sorting.each do |x,g|
+      unsorting_hint << x
+    end
+    layers=build_factor_graph(sorted_groups,sorted_ranks)
+    run_schedule(layers[0],layers[1],layers[2],layers[3],layers[4])
+    rating_layer,team_sizes=layers[0],_team_sizes(sorted_groups)
+    transformed_groups=[]
+    ([0]+team_sizes.clip).zip(team_sizes).each do |start,ending|
+      group=[]
+      rating_layer[start,ending].each do |f|
+        group << Rating.new(f.var.mu,f.var.sigma)
+      end
+      transformed_groups << Array(group)
+    end
+    unsorting=unsorting_hint.zip(transformed_groups).sort { |x,y| x[0]<=>y[0]}
+    output=[]
+    unsorting.each do |x,g|
+      output << g
+    end
+    return output
+  end
+  def match_quality(rating_groups)
+    rating_groups=validate_rating_groups(rating_groups)
+    
   end
 end
 

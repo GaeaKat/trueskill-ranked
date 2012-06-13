@@ -1,5 +1,6 @@
 module TrueSkill
-
+require_relative 'Factor'
+require_relative '../Array'
 class SumFactor < Factor
   @sum=nil
   @terms=nil
@@ -14,10 +15,10 @@ class SumFactor < Factor
   def down
    vals=@terms
    msgs=[]
-   @vals.each do |var|
+   vals.each do |var|
     msgs << var[self]
    end
-   update(@sum,@vals,msgs,@coeffs)
+   update(@sum,vals,msgs,@coeffs)
   end 
   
   def up(index=0)
@@ -34,17 +35,19 @@ class SumFactor < Factor
     vals=@terms.dup
     vals[index]=@sum
     msgs=[]
-    @vals.each do |var|
+    vals.each do |var|
       msgs << var[self]
     end
     return update(@terms[index],vals,msgs,coeffs)
   end
   
   def update(var,vals,msgs,coeffs)
-    size=coeffs.length
+    size=coeffs.length-1
     divs=[]
     (0..size).each do |x|
-      divs << vals[x]/msgs[x]
+      vl=vals[x]
+      ms=msgs[x]
+      divs << vl/ms
     end
     pisum=[]
     (0..size).each do |x|

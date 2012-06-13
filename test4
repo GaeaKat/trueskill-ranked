@@ -1,0 +1,713 @@
+.......[#<TrueSkill::TruncateFactor:0x000000013a8990
+  @draw_margin=0.9068826554188499,
+  @v_func=
+   #<Proc:0x00000001392eb0@/home/katrina/Documents/Aptana Studio 3 Workspace/trueskill-ranked/lib/general.rb:18>,
+  @vars=
+   [#<TrueSkill::Variable:0x000000013a6000
+     @delta=0.0,
+     @messages=
+      {#<TrueSkill::SumFactor:0x000000013a9f20
+        @coeffs=[1, -1],
+        @sum=#<TrueSkill::Variable:0x000000013a6000 ...>,
+        @terms=
+         [#<TrueSkill::Variable:0x000000013a61e0
+           @delta=0.062243101626613506,
+           @messages=
+            {#<TrueSkill::SumFactor:0x000000013a3af8
+              @coeffs=[1, 1],
+              @sum=#<TrueSkill::Variable:0x000000013a61e0 ...>,
+              @terms=
+               [#<TrueSkill::Variable:0x000000013a6398
+                 @delta=0.033255757260636454,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4660
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a6500
+                      @delta=0.0327142557094971,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a5330
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a6500 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013a7f40
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4660 ...>=>
+                         #<TrueSkill::Gaussian:0x00000001754f30
+                          @pi=0.0009378974323506732,
+                          @tau=0.03271425570949708>},
+                      @pi=0.015336457576336275,
+                      @tau=0.39267825930913713>,
+                    @value=#<TrueSkill::Variable:0x000000013a6398 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a6500
+                       @delta=0.0327142557094971,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a5330
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a6500 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013a7f40
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4660 ...>=>
+                          #<TrueSkill::Gaussian:0x00000001754f30
+                           @pi=0.0009378974323506732,
+                           @tau=0.03271425570949708>},
+                       @pi=0.015336457576336275,
+                       @tau=0.39267825930913713>,
+                      #<TrueSkill::Variable:0x000000013a6398 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013ae9f8
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3af8 ...>=>
+                    #<TrueSkill::Gaussian:0x000000017563a8
+                     @pi=0.0009534219461570538,
+                     @tau=0.03325575726063646>},
+                 @pi=0.012472500419879157,
+                 @tau=0.321232719103689>,
+                #<TrueSkill::Variable:0x000000013a6320
+                 @delta=0.033255757260636454,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4408
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a64b0
+                      @delta=0.0327142557094971,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a51c8
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a64b0 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013a79f0
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4408 ...>=>
+                         #<TrueSkill::Gaussian:0x00000001754b98
+                          @pi=0.0009378974323506732,
+                          @tau=0.03271425570949708>},
+                      @pi=0.015336457576336275,
+                      @tau=0.39267825930913713>,
+                    @value=#<TrueSkill::Variable:0x000000013a6320 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a64b0
+                       @delta=0.0327142557094971,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a51c8
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a64b0 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013a79f0
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4408 ...>=>
+                          #<TrueSkill::Gaussian:0x00000001754b98
+                           @pi=0.0009378974323506732,
+                           @tau=0.03271425570949708>},
+                       @pi=0.015336457576336275,
+                       @tau=0.39267825930913713>,
+                      #<TrueSkill::Variable:0x000000013a6320 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013ade18
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3af8 ...>=>
+                    #<TrueSkill::Gaussian:0x00000001755c78
+                     @pi=0.0009534219461570538,
+                     @tau=0.03325575726063646>},
+                 @pi=0.012472500419879157,
+                 @tau=0.321232719103689>],
+              @vars=
+               [#<TrueSkill::Variable:0x000000013a61e0 ...>,
+                #<TrueSkill::Variable:0x000000013a6398
+                 @delta=0.033255757260636454,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4660
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a6500
+                      @delta=0.0327142557094971,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a5330
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a6500 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013a7f40
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4660 ...>=>
+                         #<TrueSkill::Gaussian:0x00000001754f30
+                          @pi=0.0009378974323506732,
+                          @tau=0.03271425570949708>},
+                      @pi=0.015336457576336275,
+                      @tau=0.39267825930913713>,
+                    @value=#<TrueSkill::Variable:0x000000013a6398 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a6500
+                       @delta=0.0327142557094971,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a5330
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a6500 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013a7f40
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4660 ...>=>
+                          #<TrueSkill::Gaussian:0x00000001754f30
+                           @pi=0.0009378974323506732,
+                           @tau=0.03271425570949708>},
+                       @pi=0.015336457576336275,
+                       @tau=0.39267825930913713>,
+                      #<TrueSkill::Variable:0x000000013a6398 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013ae9f8
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3af8 ...>=>
+                    #<TrueSkill::Gaussian:0x000000017563a8
+                     @pi=0.0009534219461570538,
+                     @tau=0.03325575726063646>},
+                 @pi=0.012472500419879157,
+                 @tau=0.321232719103689>,
+                #<TrueSkill::Variable:0x000000013a6320
+                 @delta=0.033255757260636454,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4408
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a64b0
+                      @delta=0.0327142557094971,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a51c8
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a64b0 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013a79f0
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4408 ...>=>
+                         #<TrueSkill::Gaussian:0x00000001754b98
+                          @pi=0.0009378974323506732,
+                          @tau=0.03271425570949708>},
+                      @pi=0.015336457576336275,
+                      @tau=0.39267825930913713>,
+                    @value=#<TrueSkill::Variable:0x000000013a6320 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a64b0
+                       @delta=0.0327142557094971,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a51c8
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a64b0 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013a79f0
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4408 ...>=>
+                          #<TrueSkill::Gaussian:0x00000001754b98
+                           @pi=0.0009378974323506732,
+                           @tau=0.03271425570949708>},
+                       @pi=0.015336457576336275,
+                       @tau=0.39267825930913713>,
+                      #<TrueSkill::Variable:0x000000013a6320 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013ade18
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3af8 ...>=>
+                    #<TrueSkill::Gaussian:0x00000001755c78
+                     @pi=0.0009534219461570538,
+                     @tau=0.03325575726063646>},
+                 @pi=0.012472500419879157,
+                 @tau=0.321232719103689>]>=>
+              #<TrueSkill::Gaussian:0x000000013abcf8
+               @pi=0.005759539236861052,
+               @tau=0.28797696184305255>,
+             #<TrueSkill::SumFactor:0x000000013a9f20 ...>=>
+              #<TrueSkill::Gaussian:0x0000000173df10
+               @pi=0.0010394566762320235,
+               @tau=0.06224310162661353>},
+           @pi=0.0067989959130930755,
+           @tau=0.35022006346966605>,
+          #<TrueSkill::Variable:0x000000013a60a0
+           @delta=0.0308775314129393,
+           @messages=
+            {#<TrueSkill::SumFactor:0x000000013a3670
+              @coeffs=[1],
+              @sum=#<TrueSkill::Variable:0x000000013a60a0 ...>,
+              @terms=
+               [#<TrueSkill::Variable:0x000000013a6258
+                 @delta=0.0308775314129393,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4228
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a6460
+                      @delta=0.030625111140217477,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a50d8
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a6460 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013aef98
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4228 ...>=>
+                         #<TrueSkill::Gaussian:0x000000017547b0
+                          @pi=0.0009378974323506732,
+                          @tau=0.014180615908036558>},
+                      @pi=0.015336457576336275,
+                      @tau=0.3741446195076766>,
+                    @value=#<TrueSkill::Variable:0x000000013a6258 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a6460
+                       @delta=0.030625111140217477,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a50d8
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a6460 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013aef98
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4228 ...>=>
+                          #<TrueSkill::Gaussian:0x000000017547b0
+                           @pi=0.0009378974323506732,
+                           @tau=0.014180615908036558>},
+                       @pi=0.015336457576336275,
+                       @tau=0.3741446195076766>,
+                      #<TrueSkill::Variable:0x000000013a6258 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013acef0
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3670 ...>=>
+                    #<TrueSkill::Gaussian:0x00000001755480
+                     @pi=0.0009534219461570532,
+                     @tau=0.014415340047216174>},
+                 @pi=0.012472500419879157,
+                 @tau=0.3023923018902687>],
+              @vars=
+               [#<TrueSkill::Variable:0x000000013a60a0 ...>,
+                #<TrueSkill::Variable:0x000000013a6258
+                 @delta=0.0308775314129393,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4228
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a6460
+                      @delta=0.030625111140217477,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a50d8
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a6460 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013aef98
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4228 ...>=>
+                         #<TrueSkill::Gaussian:0x000000017547b0
+                          @pi=0.0009378974323506732,
+                          @tau=0.014180615908036558>},
+                      @pi=0.015336457576336275,
+                      @tau=0.3741446195076766>,
+                    @value=#<TrueSkill::Variable:0x000000013a6258 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a6460
+                       @delta=0.030625111140217477,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a50d8
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a6460 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013aef98
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4228 ...>=>
+                          #<TrueSkill::Gaussian:0x000000017547b0
+                           @pi=0.0009378974323506732,
+                           @tau=0.014180615908036558>},
+                       @pi=0.015336457576336275,
+                       @tau=0.3741446195076766>,
+                      #<TrueSkill::Variable:0x000000013a6258 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013acef0
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3670 ...>=>
+                    #<TrueSkill::Gaussian:0x00000001755480
+                     @pi=0.0009534219461570532,
+                     @tau=0.014415340047216174>},
+                 @pi=0.012472500419879157,
+                 @tau=0.3023923018902687>]>=>
+              #<TrueSkill::Gaussian:0x000000013b20d0
+               @pi=0.011519078473722104,
+               @tau=0.28797696184305255>,
+             #<TrueSkill::SumFactor:0x000000013a9f20 ...>=>
+              #<TrueSkill::Gaussian:0x00000001756ba0
+               @pi=0.0009534219461570536,
+               @tau=0.014415340047216193>},
+           @pi=0.012472500419879157,
+           @tau=0.3023923018902687>],
+        @vars=
+         [#<TrueSkill::Variable:0x000000013a6000 ...>,
+          #<TrueSkill::Variable:0x000000013a61e0
+           @delta=0.062243101626613506,
+           @messages=
+            {#<TrueSkill::SumFactor:0x000000013a3af8
+              @coeffs=[1, 1],
+              @sum=#<TrueSkill::Variable:0x000000013a61e0 ...>,
+              @terms=
+               [#<TrueSkill::Variable:0x000000013a6398
+                 @delta=0.033255757260636454,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4660
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a6500
+                      @delta=0.0327142557094971,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a5330
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a6500 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013a7f40
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4660 ...>=>
+                         #<TrueSkill::Gaussian:0x00000001754f30
+                          @pi=0.0009378974323506732,
+                          @tau=0.03271425570949708>},
+                      @pi=0.015336457576336275,
+                      @tau=0.39267825930913713>,
+                    @value=#<TrueSkill::Variable:0x000000013a6398 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a6500
+                       @delta=0.0327142557094971,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a5330
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a6500 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013a7f40
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4660 ...>=>
+                          #<TrueSkill::Gaussian:0x00000001754f30
+                           @pi=0.0009378974323506732,
+                           @tau=0.03271425570949708>},
+                       @pi=0.015336457576336275,
+                       @tau=0.39267825930913713>,
+                      #<TrueSkill::Variable:0x000000013a6398 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013ae9f8
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3af8 ...>=>
+                    #<TrueSkill::Gaussian:0x000000017563a8
+                     @pi=0.0009534219461570538,
+                     @tau=0.03325575726063646>},
+                 @pi=0.012472500419879157,
+                 @tau=0.321232719103689>,
+                #<TrueSkill::Variable:0x000000013a6320
+                 @delta=0.033255757260636454,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4408
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a64b0
+                      @delta=0.0327142557094971,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a51c8
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a64b0 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013a79f0
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4408 ...>=>
+                         #<TrueSkill::Gaussian:0x00000001754b98
+                          @pi=0.0009378974323506732,
+                          @tau=0.03271425570949708>},
+                      @pi=0.015336457576336275,
+                      @tau=0.39267825930913713>,
+                    @value=#<TrueSkill::Variable:0x000000013a6320 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a64b0
+                       @delta=0.0327142557094971,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a51c8
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a64b0 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013a79f0
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4408 ...>=>
+                          #<TrueSkill::Gaussian:0x00000001754b98
+                           @pi=0.0009378974323506732,
+                           @tau=0.03271425570949708>},
+                       @pi=0.015336457576336275,
+                       @tau=0.39267825930913713>,
+                      #<TrueSkill::Variable:0x000000013a6320 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013ade18
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3af8 ...>=>
+                    #<TrueSkill::Gaussian:0x00000001755c78
+                     @pi=0.0009534219461570538,
+                     @tau=0.03325575726063646>},
+                 @pi=0.012472500419879157,
+                 @tau=0.321232719103689>],
+              @vars=
+               [#<TrueSkill::Variable:0x000000013a61e0 ...>,
+                #<TrueSkill::Variable:0x000000013a6398
+                 @delta=0.033255757260636454,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4660
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a6500
+                      @delta=0.0327142557094971,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a5330
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a6500 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013a7f40
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4660 ...>=>
+                         #<TrueSkill::Gaussian:0x00000001754f30
+                          @pi=0.0009378974323506732,
+                          @tau=0.03271425570949708>},
+                      @pi=0.015336457576336275,
+                      @tau=0.39267825930913713>,
+                    @value=#<TrueSkill::Variable:0x000000013a6398 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a6500
+                       @delta=0.0327142557094971,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a5330
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a6500 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013a7f40
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4660 ...>=>
+                          #<TrueSkill::Gaussian:0x00000001754f30
+                           @pi=0.0009378974323506732,
+                           @tau=0.03271425570949708>},
+                       @pi=0.015336457576336275,
+                       @tau=0.39267825930913713>,
+                      #<TrueSkill::Variable:0x000000013a6398 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013ae9f8
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3af8 ...>=>
+                    #<TrueSkill::Gaussian:0x000000017563a8
+                     @pi=0.0009534219461570538,
+                     @tau=0.03325575726063646>},
+                 @pi=0.012472500419879157,
+                 @tau=0.321232719103689>,
+                #<TrueSkill::Variable:0x000000013a6320
+                 @delta=0.033255757260636454,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4408
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a64b0
+                      @delta=0.0327142557094971,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a51c8
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a64b0 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013a79f0
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4408 ...>=>
+                         #<TrueSkill::Gaussian:0x00000001754b98
+                          @pi=0.0009378974323506732,
+                          @tau=0.03271425570949708>},
+                      @pi=0.015336457576336275,
+                      @tau=0.39267825930913713>,
+                    @value=#<TrueSkill::Variable:0x000000013a6320 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a64b0
+                       @delta=0.0327142557094971,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a51c8
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a64b0 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013a79f0
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4408 ...>=>
+                          #<TrueSkill::Gaussian:0x00000001754b98
+                           @pi=0.0009378974323506732,
+                           @tau=0.03271425570949708>},
+                       @pi=0.015336457576336275,
+                       @tau=0.39267825930913713>,
+                      #<TrueSkill::Variable:0x000000013a6320 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013ade18
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3af8 ...>=>
+                    #<TrueSkill::Gaussian:0x00000001755c78
+                     @pi=0.0009534219461570538,
+                     @tau=0.03325575726063646>},
+                 @pi=0.012472500419879157,
+                 @tau=0.321232719103689>]>=>
+              #<TrueSkill::Gaussian:0x000000013abcf8
+               @pi=0.005759539236861052,
+               @tau=0.28797696184305255>,
+             #<TrueSkill::SumFactor:0x000000013a9f20 ...>=>
+              #<TrueSkill::Gaussian:0x0000000173df10
+               @pi=0.0010394566762320235,
+               @tau=0.06224310162661353>},
+           @pi=0.0067989959130930755,
+           @tau=0.35022006346966605>,
+          #<TrueSkill::Variable:0x000000013a60a0
+           @delta=0.0308775314129393,
+           @messages=
+            {#<TrueSkill::SumFactor:0x000000013a3670
+              @coeffs=[1],
+              @sum=#<TrueSkill::Variable:0x000000013a60a0 ...>,
+              @terms=
+               [#<TrueSkill::Variable:0x000000013a6258
+                 @delta=0.0308775314129393,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4228
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a6460
+                      @delta=0.030625111140217477,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a50d8
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a6460 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013aef98
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4228 ...>=>
+                         #<TrueSkill::Gaussian:0x000000017547b0
+                          @pi=0.0009378974323506732,
+                          @tau=0.014180615908036558>},
+                      @pi=0.015336457576336275,
+                      @tau=0.3741446195076766>,
+                    @value=#<TrueSkill::Variable:0x000000013a6258 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a6460
+                       @delta=0.030625111140217477,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a50d8
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a6460 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013aef98
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4228 ...>=>
+                          #<TrueSkill::Gaussian:0x000000017547b0
+                           @pi=0.0009378974323506732,
+                           @tau=0.014180615908036558>},
+                       @pi=0.015336457576336275,
+                       @tau=0.3741446195076766>,
+                      #<TrueSkill::Variable:0x000000013a6258 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013acef0
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3670 ...>=>
+                    #<TrueSkill::Gaussian:0x00000001755480
+                     @pi=0.0009534219461570532,
+                     @tau=0.014415340047216174>},
+                 @pi=0.012472500419879157,
+                 @tau=0.3023923018902687>],
+              @vars=
+               [#<TrueSkill::Variable:0x000000013a60a0 ...>,
+                #<TrueSkill::Variable:0x000000013a6258
+                 @delta=0.0308775314129393,
+                 @messages=
+                  {#<TrueSkill::LikelihoodFactor:0x000000013a4228
+                    @mean=
+                     #<TrueSkill::Variable:0x000000013a6460
+                      @delta=0.030625111140217477,
+                      @messages=
+                       {#<TrueSkill::PriorFactor:0x000000013a50d8
+                         @dynamic=0.08333333333333334,
+                         @val=[mu=25.0,sigma=8.333333333333334],
+                         @vars=[#<TrueSkill::Variable:0x000000013a6460 ...>]>=>
+                         #<TrueSkill::Gaussian:0x000000013aef98
+                          @pi=0.014398560143985602,
+                          @tau=0.35996400359964004>,
+                        #<TrueSkill::LikelihoodFactor:0x000000013a4228 ...>=>
+                         #<TrueSkill::Gaussian:0x000000017547b0
+                          @pi=0.0009378974323506732,
+                          @tau=0.014180615908036558>},
+                      @pi=0.015336457576336275,
+                      @tau=0.3741446195076766>,
+                    @value=#<TrueSkill::Variable:0x000000013a6258 ...>,
+                    @variance=17.361111111111114,
+                    @vars=
+                     [#<TrueSkill::Variable:0x000000013a6460
+                       @delta=0.030625111140217477,
+                       @messages=
+                        {#<TrueSkill::PriorFactor:0x000000013a50d8
+                          @dynamic=0.08333333333333334,
+                          @val=[mu=25.0,sigma=8.333333333333334],
+                          @vars=
+                           [#<TrueSkill::Variable:0x000000013a6460 ...>]>=>
+                          #<TrueSkill::Gaussian:0x000000013aef98
+                           @pi=0.014398560143985602,
+                           @tau=0.35996400359964004>,
+                         #<TrueSkill::LikelihoodFactor:0x000000013a4228 ...>=>
+                          #<TrueSkill::Gaussian:0x000000017547b0
+                           @pi=0.0009378974323506732,
+                           @tau=0.014180615908036558>},
+                       @pi=0.015336457576336275,
+                       @tau=0.3741446195076766>,
+                      #<TrueSkill::Variable:0x000000013a6258 ...>]>=>
+                    #<TrueSkill::Gaussian:0x000000013acef0
+                     @pi=0.011519078473722104,
+                     @tau=0.28797696184305255>,
+                   #<TrueSkill::SumFactor:0x000000013a3670 ...>=>
+                    #<TrueSkill::Gaussian:0x00000001755480
+                     @pi=0.0009534219461570532,
+                     @tau=0.014415340047216174>},
+                 @pi=0.012472500419879157,
+                 @tau=0.3023923018902687>]>=>
+              #<TrueSkill::Gaussian:0x000000013b20d0
+               @pi=0.011519078473722104,
+               @tau=0.28797696184305255>,
+             #<TrueSkill::SumFactor:0x000000013a9f20 ...>=>
+              #<TrueSkill::Gaussian:0x00000001756ba0
+               @pi=0.0009534219461570536,
+               @tau=0.014415340047216193>},
+           @pi=0.012472500419879157,
+           @tau=0.3023923018902687>]>=>
+        #<TrueSkill::Gaussian:0x0000000173fb80
+         @pi=0.003839692824574035,
+         @tau=0.09599232061435085>,
+       #<TrueSkill::TruncateFactor:0x000000013a8990 ...>=>
+        #<TrueSkill::Gaussian:0x0000000173ec08
+         @pi=0.0011425586967669732,
+         @tau=0.039852926428706886>},
+     @pi=0.004982251521341008,
+     @tau=0.13584524704305775>],
+  @w_func=
+   #<Proc:0x00000001392e60@/home/katrina/Documents/Aptana Studio 3 Workspace/trueskill-ranked/lib/general.rb:23>>]
+.
+
+Finished in 0.06775 seconds
+8 examples, 0 failures

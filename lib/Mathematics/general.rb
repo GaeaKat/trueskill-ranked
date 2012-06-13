@@ -17,7 +17,7 @@ module TrueSkill
   return 0.5*Math.erfc(-(x-mu)/(sigma*Math.sqrt(2)))
  end
  def pdf(x,mu=0,sigma=1)
-  return (1/Math.sqrt(2*Math.PI)*sigma.abs)*Math.exp(-(((x-mu)/sigma.abs)**2/2))
+  return (1/Math.sqrt(2*Math::PI)*sigma.abs)*Math.exp(-(((x-mu)/sigma.abs)**2/2))
  end
  def ppf(x,mu=0,sigma=1)
   return mu-sigma*Math.sqrt(2)*ierfcc(2*x)

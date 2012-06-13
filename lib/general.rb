@@ -3,6 +3,10 @@ module TrueSkill
   require 'Mathematics/guassian.rb'
   require 'TrueSkill'
   require 'FactorGraph/Variable'
+  require 'FactorGraph/PriorFactor'
+  require 'FactorGraph/LikelihoodFactor'
+  require 'FactorGraph/SumFactor'
+  require 'FactorGraph/TruncateFactor'
   MU=25.0
   SIGMA=MU/3
   BETA=SIGMA/2
@@ -11,32 +15,32 @@ module TrueSkill
   DELTA=0.001
 
 
-  def V(diff,draw_margin)
+  $vFunc=Proc.new  do |diff,draw_margin|
     x=diff-draw_margin
-    return pdf(x)/cdf(x)
+    pdf(x)/cdf(x)
   end
   
-  def W(diff,draw_margin)
+  $wFunc=Proc.new do |diff,draw_margin|
     x=diff-draw_margin
-    v=V(diff,draw_margin)
-    return v*(v+x)
+    v=$vFunc.call(diff,draw_margin)
+    v*(v+x)
   end
   
-  def V_draw(diff,draw_margin)
+  $v_drawFunc=Proc.new do |diff,draw_margin|
     abs_diff=diff.abs
     a=draw_margin-abs_diff
     b=-draw_margin-abs_diff
     denom=cdf(a)-cdf(b)
     numer=pdf(b)-pdf(a)
-    return numer/denom*((diff<0)?-1:1)
+    numer/denom*((diff<0)?-1:1)
   end
-  def W_draw(diff,draw_margin)
+  $w_drawFunc=Proc.new do |diff,draw_margin|
     abs_diff=diff.abs
     a=draw_margin-abs_diff
     b=-draw_margin-abs_diff
     denom=cdf(a)-cdf(b)
-    v=V_draw(abs_diff,draw_margin)
-    return (v**2)+(a*pdf(a)-b*pdf(b))/denom
+    v=$v_drawFunc.call(abs_diff,draw_margin)
+    (v**2)+(a*pdf(a)-b*pdf(b))/denom
   end
   
   def calc_draw_probability(draw_margin,beta,size)

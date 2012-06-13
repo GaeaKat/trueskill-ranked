@@ -1,11 +1,12 @@
 module TrueSkill
 
 class Factor
+  attr_accessor :vars
   @vars=nil
   def initialize(vars)
     @vars=vars
     @vars.each do |var|
-      var[self]=Guassian.new
+      var[self]=Gaussian.new
     end
       
   end
