@@ -14,4 +14,7 @@ class PriorFactor < Factor
     value=Gaussian.new @val.mu,sigma
     var.update_value self,0,0,value
   end 
+  def to_s
+    return "<PriorFactor "+self.object_id.to_s+">"
+  end
 end

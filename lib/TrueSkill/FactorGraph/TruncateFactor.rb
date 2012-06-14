@@ -25,4 +25,7 @@ class TruncateFactor < Factor
     tau=(div.tau+sqrt_pi*v)/denom
     return var.update_value(self,pi,tau)
   end  
+  def to_s
+    return "<TruncateFactor "+self.object_id.to_s+">"
+  end
 end

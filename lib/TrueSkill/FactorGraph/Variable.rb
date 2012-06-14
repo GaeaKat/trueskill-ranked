@@ -42,6 +42,8 @@ class Variable < Gaussian
   def []=(y,value)
     @messages[y]=value
   end
-  
+  def to_s
+    return "<Variable "+self.object_id.to_s+" mu="+self.mu.to_s+" sigma= "+self.sigma.to_s+">"
+  end
 end
 

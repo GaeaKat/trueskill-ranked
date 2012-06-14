@@ -60,6 +60,8 @@ class SumFactor < Factor
     tau=pi*tausum.inject{|sum,x| sum + x }
     return var.update_message(self,pi,tau)
   end
-  
+  def to_s
+    return "<SumFactor "+self.object_id.to_s+">"
+  end
 end
 

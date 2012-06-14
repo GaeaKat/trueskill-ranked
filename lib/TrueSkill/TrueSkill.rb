@@ -138,13 +138,13 @@ class TrueSkillObject
         delta=0
         (teamdiff_len-1).times do |x2|
           teamdiff_layer[x2].down
-          delta=[delta,trunc_layer[x].up].max
-          teamdiff_layer[x].up(1)
+          delta=[delta,trunc_layer[x2].up].max
+          teamdiff_layer[x2].up(1)
         end
         (teamdiff_len-1).step(0,-1) do |x2|
           teamdiff_layer[x2].down
-          delta=[delta,trunc_layer[x].up].max
-          teamdiff_layer[x].up(0)
+          delta=[delta,trunc_layer[x2].up].max
+          teamdiff_layer[x2].up(0)
         end
       end
       if delta<=min_delta
@@ -164,6 +164,8 @@ class TrueSkillObject
   end
   def transform_ratings(rating_groups, ranks=nil, min_delta=DELTA)
     rating_groups=validate_rating_groups(rating_groups)
+    #pp "Start groups"
+    #pp rating_groups
     group_size=rating_groups.length
     if ranks.nil?
       ranks=Array(0..group_size-1)
@@ -178,17 +180,27 @@ class TrueSkillObject
     sorting.each do |x,g|
       unsorting_hint << x
     end
+    #pp "Sorted Groups"
+    #pp sorted_groups
+    #pp "Sorted Ranks"
+    #pp sorted_ranks
     layers=build_factor_graph(sorted_groups,sorted_ranks)
     run_schedule(layers[0],layers[1],layers[2],layers[3],layers[4])
     rating_layer,team_sizes=layers[0],_team_sizes(sorted_groups)
+    #pp "Team Sizes"
+    #pp team_sizes
+    #pp "Rating Layer"
+    #pp rating_layer
     transformed_groups=[]
     ([0]+team_sizes.take(team_sizes.size - 1)).zip(team_sizes).each do |start,ending|
       group=[]
-      rating_layer[start,ending].each do |f|
+      rating_layer[start...ending].each do |f|
         group << Rating.new(f.var.mu,f.var.sigma)
       end
       transformed_groups << Array(group)
     end
+    #pp "Transformed"
+    #pp transformed_groups
     unsorting=unsorting_hint.zip(transformed_groups).sort { |x,y| x[0]<=>y[0]}
     output=[]
     unsorting.each do |x,g|

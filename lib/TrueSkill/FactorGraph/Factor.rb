@@ -14,4 +14,7 @@ class Factor
   def var
     @vars[0]
   end
+  def to_s
+    return "<Factor "+self.object_id.to_s+">"
+  end
 end

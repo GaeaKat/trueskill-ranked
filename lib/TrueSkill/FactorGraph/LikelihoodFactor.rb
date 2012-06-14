@@ -24,4 +24,7 @@ class LikelihoodFactor < Factor
     a=1.0/(1.0+@variance*msg.pi)
     return @mean.update_message(self,a*msg.pi,a*msg.tau)
   end
+  def to_s
+    return "<LiklihoodFactor "+self.object_id.to_s+">"
+  end
 end
