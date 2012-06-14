@@ -1,4 +1,4 @@
-module TrueSkill
+
  
  def ierfcc(p)
   return -100 if p >= 2.0
@@ -22,4 +22,3 @@ module TrueSkill
  def ppf(x,mu=0,sigma=1)
   return mu-sigma*Math.sqrt(2)*ierfcc(2*x)
  end
-end

@@ -1,5 +1,3 @@
-module TrueSkill
-
 class TruncateFactor < Factor
   @v_func=nil
   @w_func=nil
@@ -27,6 +25,4 @@ class TruncateFactor < Factor
     tau=(div.tau+sqrt_pi*v)/denom
     return var.update_value(self,pi,tau)
   end  
-end
-
 end

@@ -1,6 +1,4 @@
-module TrueSkill
-require_relative 'Factor'
-require_relative '../Array'
+
 class SumFactor < Factor
   @sum=nil
   @terms=nil
@@ -53,16 +51,15 @@ class SumFactor < Factor
     (0..size).each do |x|
       pisum << coeffs[x]**2/divs[x].pi
     end
-    pi=1.0/pisum.sum
+    pi=1.0/pisum.inject{|sum,x| sum + x }
     
     tausum=[]
     (0..size).each do |x|
       tausum << coeffs[x]*divs[x].mu
     end
-    tau=pi*tausum.sum
+    tau=pi*tausum.inject{|sum,x| sum + x }
     return var.update_message(self,pi,tau)
   end
   
 end
 
-end

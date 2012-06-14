@@ -1,4 +1,4 @@
-module TrueSkill
+
 
 class Factor
   attr_accessor :vars
@@ -14,6 +14,4 @@ class Factor
   def var
     @vars[0]
   end
-end
-
 end

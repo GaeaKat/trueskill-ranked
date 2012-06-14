@@ -1,4 +1,3 @@
-module TrueSkill
 
 class Variable < Gaussian
 
@@ -46,4 +45,3 @@ class Variable < Gaussian
   
 end
 
-end

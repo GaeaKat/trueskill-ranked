@@ -1,4 +1,3 @@
-module TrueSkill
 class Gaussian
   attr_accessor :pi,:tau,:mu,:sigma
   @pi=nil
@@ -37,4 +36,3 @@ class Gaussian
   end
 end
 
-end

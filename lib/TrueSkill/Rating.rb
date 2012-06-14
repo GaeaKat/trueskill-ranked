@@ -1,7 +1,4 @@
-module TrueSkill
-  require 'Mathematics/general.rb'
-  require 'Mathematics/guassian.rb'
-  require 'general'
+
   class Rating < Gaussian
   attr_accessor :exposure
     def initialize(mu=nil,sigma=nil)
@@ -24,4 +21,3 @@ module TrueSkill
       return "[mu="+mu.to_s+",sigma="+sigma.to_s+"]"
     end
   end
-end

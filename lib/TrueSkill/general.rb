@@ -1,12 +1,4 @@
-module TrueSkill
-  require 'Mathematics/general.rb'
-  require 'Mathematics/guassian.rb'
-  require 'TrueSkill'
-  require 'FactorGraph/Variable'
-  require 'FactorGraph/PriorFactor'
-  require 'FactorGraph/LikelihoodFactor'
-  require 'FactorGraph/SumFactor'
-  require 'FactorGraph/TruncateFactor'
+
   MU=25.0
   SIGMA=MU/3
   BETA=SIGMA/2
@@ -77,4 +69,3 @@ $global=[]
     return g()
   end
 
-end

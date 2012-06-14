@@ -1,4 +1,4 @@
-module TrueSkill
+
 require_relative 'Factor'
 class PriorFactor < Factor
   @val=nil
@@ -14,6 +14,4 @@ class PriorFactor < Factor
     value=Gaussian.new @val.mu,sigma
     var.update_value self,0,0,value
   end 
-end
-
 end

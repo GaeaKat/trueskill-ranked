@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'pp'
-include TrueSkill
+
 describe "General" do
  it "Correctly uses ierfcc" do
   @val=ierfcc(Math.erfc(1.5))
