@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'trueskill-ranked'
-  s.version     = '1.0'
+  s.version     = '1.1'
   s.date        = '2012-06-13'
   s.summary     = "Ranked TrueSkill"
   s.description = "A improved TrueSkill with correct ranking order"
