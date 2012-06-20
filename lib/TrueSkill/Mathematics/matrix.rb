@@ -98,7 +98,7 @@ include Enumerable
         src[[c,r]]=@base[r][c]
       end
     end
-    return Matrix.new(src,w,h)
+    return Matrix.new(src,h,w)
   end
   def minor(row_n,col_n)
     w,h=width,height
@@ -183,6 +183,67 @@ include Enumerable
       return Matrix.new(src,w,h)
     end
   end  
+  
+  def inverse
+    if width==1 and height==1
+      return Matrix.new([[1.0/self[0,0]]])
+    else
+      return (1.0/self.determinant())*self.adjucate()
+    end
+  end
+  
+  
+  def coerce(other)
+    return self, other
+  end
+
+  def +(other)
+    w,h=width,height
+    if not (w== other.width and h==other.height)
+      raise "Must be same size"
+    end 
+    src={}
+    (0...h).each do |r|
+      (0...w).each do |c|
+        src[[r,c]]=self[r,c]+other[r,c]
+      end
+    end
+    return Matrix.new(src,w,h)
+  end
+  
+  def *(other)
+    if other.is_a? Matrix
+      w,h=other.width,height
+      #pp w
+      #pp h
+      #pp other.width
+      #pp other.height
+      if not width== other.height
+        raise "Must be same size"
+      end
+      src={}
+      (0...h).each do |r|
+        (0...w).each do |c|
+          lst=[]
+          #pp r
+          #pp c
+          
+          (0...width).each { |x|  lst << (self[r,x] * other[x,c])}
+          src[[r,c]]=lst.inject(:+)
+        end
+      end
+      return Matrix.new(src,w,h)
+    else
+      w,h=width,height
+      src={}
+      (0...h).each do |r|
+        (0...w).each do |c|
+          src[[r,c]]=other*self[r,c]
+        end
+      end
+      return Matrix.new(src,w,h)
+    end
+  end
   def clone
     rows=[]
     @base.each do |x|

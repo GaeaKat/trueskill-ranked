@@ -208,40 +208,60 @@ class TrueSkillObject
     end
     return output
   end
-  #def match_quality(rating_groups)
-    #rating_groups=validate_rating_groups(rating_groups)
-    #ratings=rating_groups.flatten
-    #length=ratings.length
-    #mean_rows=[]
-    #ratings.each {|r| mean_rows << [r.mu] }
-    #mean_matrix=Matrix[*mean_rows]
-    #variance_rows=[]
-    #ratings.each {|r| variance_rows << r.sigma**2 }
-    #variance_matrix=Matrix.diagonal *variance_rows 
-    #rotated_a_matrix=lambda do
-    #    mat=[]
-    #    t=0
-    #    rating_groups.clip.zip(rating_groups.drop(1)).each_with_index do |y,r|
-    #      rline=[]
-    #      cur=y[0]
-    #      nex=y[1]
-    #      z=0
-    #      (t..t+cur.length).each do |x|
-    #        rline << 1
-    #        t+=1
-    #        z=x
-    #      end
-    #      z+=1
-    #      (z..z+nex.length).each do |x|
-    #        rline << -1
-    #      end
-    #      mat << rline
-    #    end
-    #    mat
-    #end
-    #rotated_a_matrix=Matrix[rotated_a_matrix.call]
-    #a_matrix = rotated_a_matrix.transpose()
-    #_ata = (@beta ** 2) * rotated_a_matrix * a_matrix
-    #pp _ata
-  #end
+  def match_quality(rating_groups)
+    rating_groups=validate_rating_groups(rating_groups)
+    ratings=rating_groups.flatten
+    length=ratings.length
+    mean_rows=[]
+    ratings.each {|r| mean_rows << [r.mu] }
+    mean_matrix=Matrix.new(mean_rows)
+    variance_matrix=Proc.new do |width,height|
+      Enumerator.new do |yielder|
+        sig=[]
+        ratings.each {|x| sig << (x.sigma**2)}
+        sig.each_with_index do |variance,x|
+          yielder.yield [x,x],variance
+        end
+      end
+    end
+    variance_matrix=Matrix.new(nil,length,length,:func=>variance_matrix)
+    #pp variance_matrix 
+    rotated_a_matrix=Proc.new do |set_width,set_height|
+      Enumerator.new do |yielder|
+          t=0
+          r2=0
+          x2=0
+          rating_groups.take(rating_groups.size-1).zip(rating_groups.drop(1)).each_with_index do |y,r|
+            cur=y[0]
+            nex=y[1]
+            z=0
+            (t...t+cur.length).each do |x|
+              yielder.yield [r,x],1
+              t+=1
+              z=x
+            end
+            z+=1
+            (z...z+nex.length).each do |x|
+              pp 
+              yielder.yield [r,x],-1
+              z=x
+            end
+            r2=r
+            x2=z
+          end
+          set_width.call(x2+1)
+          set_height.call(r2+1)
+      end
+    end
+    rotated_a_matrix=Matrix.new(nil,nil,nil,:func=>rotated_a_matrix)
+    a_matrix = rotated_a_matrix.transpose()
+    _ata = (@beta ** 2) * rotated_a_matrix * a_matrix
+    _atsa=rotated_a_matrix*(variance_matrix*a_matrix)
+    start=mean_matrix.transpose()*a_matrix
+    middle=_ata+_atsa
+    endv=rotated_a_matrix*mean_matrix
+    e_arg=(-0.5*start*middle.inverse()*endv).determinant()
+    s_arg=_ata.determinant()/middle.determinant()
+    return Math.exp(e_arg)*Math.sqrt(s_arg)
+  end
 end

@@ -39,13 +39,13 @@ describe Matrix do
     test=Matrix.new([[2, 2, 3], [4, 5, 6], [7, 8, 9]])
     test[1,1].should eql 5
     test2=test.determinant
-    pp test2
+    #pp test2
   end
   it "Adjucate a Matrix" do
     test=Matrix.new([[2, 2, 3], [4, 5, 6], [7, 8, 9]])
     test[1,1].should eql 5
     test2=test.adjucate
-    pp test2
+    #pp test2
   end
   it "Checks Matrix cloning" do
     test=Matrix.new([[1,2,3],[4,5,6],[7,8,9]])
@@ -60,8 +60,26 @@ describe Matrix do
     test[1,1].should eql 5
     test2=test.minor 1,1
     #pp test2
-  end 
-  
+  end
+  it "Multiplies a matrix by a number" do
+   test=Matrix.new([[1,2,3],[4,5,6],[7,8,9]])
+   test2=test*2
+   ans=Matrix.new([[2,4,6],[8,10,12],[14,16,18]])
+   test2[1,1].should eql ans[1,1] 
+  end
+  it "Multiplies a number by a matrix" do
+   test=Matrix.new([[1,2,3],[4,5,6],[7,8,9]])
+   test2=2*test
+   ans=Matrix.new([[2,4,6],[8,10,12],[14,16,18]])
+   test2[1,1].should eql ans[1,1] 
+  end
+  it "Multiplies a matrix by a matrix" do
+    test=Matrix.new([[1,2,3],[4,5,6],[7,8,9]])
+    test2=Matrix.new([[9,8,7],[6,5,4],[3,2,1]])
+    test3=test*test2
+    ans=Matrix.new([[30,24,18],[84,69,54],[138,114,90]])
+    test3[1,1].should eql ans[1,1]
+  end
   it "makes a new Matrix with an array" do
     test=Matrix.new([[1,2,3],[1,2,3],[1,2,3]])
   end

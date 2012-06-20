@@ -101,15 +101,15 @@ describe Rating do
     result[2][0].sigma.should eql 5.494893620335039
     #pp trunc_layer
   end
-  #it "Tests a 1 vs 1 match Match quality" do
-  #  team1=[]
-  #  1.times do
-  #    team1 << Rating.new
-  #  end
-  #  team2=[]
-  #  1.times do
-  #    team2 << Rating.new
-  #  end
-  #  g().match_quality([team1,team2])
-  #end
+  it "Tests a 1 vs 1 match Match quality" do
+    team1=[]
+    1.times do
+      team1 << Rating.new()
+    end
+    team2=[]
+    1.times do
+      team2 << Rating.new()
+    end
+    pp g().match_quality([[team1],[team2]])
+  end
 end
