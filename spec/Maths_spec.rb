@@ -4,7 +4,7 @@ require 'pp'
 describe "General" do
  it "Correctly uses ierfcc" do
   @val=ierfcc(Math.erfc(1.5))
-  @val.should eql 1.5
+  @val.should be_within(0.001).of 1.5
  end
  
  it "Correctly uses cdf" do

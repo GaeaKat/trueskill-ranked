@@ -20,9 +20,6 @@ end
   require File.expand_path(File.join(File.dirname(__FILE__), "TrueSkill", "FactorGraph", "#{name}.rb"))
 end
 
-
-
-
 %w(
   Array
   core_ext
